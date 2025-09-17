@@ -10,7 +10,7 @@ public class ScreenManager : MonoBehaviour
     [SerializeField] private GameObject screenSetting = null;
     [SerializeField] private GameObject screenCredit = null;
     [SerializeField] private GameObject screenPause = null;
-        [SerializeField] private GameObject screenWinLose = null;
+    [SerializeField] private GameObject screenWinLose = null;
     [SerializeField] private ScreenFader fader = null;
 
     void Start()

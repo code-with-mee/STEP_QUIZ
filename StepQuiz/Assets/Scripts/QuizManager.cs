@@ -11,6 +11,7 @@ public class QuizManager : MonoBehaviour
     public Text scoreText;
     public Button[] answerButtons;
     public GameObject gameOverPanel;
+    public GameObject gamePausePanel;
     public Text gameOverText;
     public Button retryButton;
     public Button levelButton;
@@ -35,9 +36,8 @@ public class QuizManager : MonoBehaviour
         answered = 0;
         scoreText.text = $"{score}/{maxQuestions}";
         gameOverPanel.SetActive(false);
+        gamePausePanel.SetActive(false);
         NextQuestion();
-        retryButton.onClick.RemoveAllListeners();
-        retryButton.onClick.AddListener(RestartGame);
         levelButton.onClick.RemoveAllListeners();
     }
 
@@ -154,9 +154,11 @@ public class QuizManager : MonoBehaviour
         gameOverPanel.SetActive(true);
     }
 
-    private void RestartGame()
+    public void RestartGame()
     {
+        Debug.Log("restart game");
         gameOverPanel.SetActive(false);
+        gamePausePanel.SetActive(false);
         timeRemaining = initTime;
         items = QuizLoader.LoadFromResources("quiz").OrderBy(x => UnityEngine.Random.value).Take(maxQuestions).ToList();
         score = 0;
