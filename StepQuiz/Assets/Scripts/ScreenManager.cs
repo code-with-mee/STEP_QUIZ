@@ -1,64 +1,47 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
 public class ScreenManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject screenTitle = null;
-    [SerializeField]
-    private GameObject screenLevel = null;
-    [SerializeField]
-    private GameObject screenGamePlay = null;
-
+    [SerializeField] private GameObject screenTitle = null;
+    [SerializeField] private GameObject screenLevel = null;
+    [SerializeField] private GameObject screenGamePlay = null;
     [SerializeField] private GameObject screenSetting = null;
     [SerializeField] private GameObject screenCredit = null;
+    [SerializeField] private GameObject screenPause = null;
+    [SerializeField] private ScreenFader fader = null;
 
-
-    public void ClickPlay()
+    void Start()
     {
-        screenTitle.SetActive(false);
-        screenLevel.SetActive(true);
+        ShowScreen(screenTitle);
     }
 
-    public void ClickSetting()
+    void DeactivateAllBase()
     {
-        screenTitle.SetActive(false);
-        screenSetting.SetActive(true);
+        if (screenTitle) screenTitle.SetActive(false);
+        if (screenLevel) screenLevel.SetActive(false);
+        if (screenGamePlay) screenGamePlay.SetActive(false);
+        if (screenSetting) screenSetting.SetActive(false);
+        if (screenCredit) screenCredit.SetActive(false);
     }
 
-    public void ClickCredit()
+    public void ShowPause(bool show)
     {
-        screenTitle.SetActive(false);
-        screenCredit.SetActive(true);
+        if (screenPause) screenPause.SetActive(show);
     }
 
-    public void BackLevelSelectToTitle()
+    public void ShowScreen(GameObject target)
     {
-        screenLevel.SetActive(false);
-        screenTitle.SetActive(true);
+        if (!target) return;
+        StartCoroutine(SwitchScreen(target));
     }
 
-    public void BackFromSetting()
+    IEnumerator SwitchScreen(GameObject next)
     {
-        screenSetting.SetActive(false);
-        screenTitle.SetActive(true);
-    }
-
-    public void BackFromCredit()
-    {
-        screenCredit.SetActive(false);
-        screenTitle.SetActive(true);
-    }
-
-    public void ClickLevel()
-    {
-        screenLevel.SetActive(false);
-        screenGamePlay.SetActive(true);
-    }
-
-    public void BackFromScreenPlay()
-    {
-        screenGamePlay.SetActive(false);
-        screenLevel.SetActive(true);
+        if (fader) yield return fader.FadeOut();
+        DeactivateAllBase();
+        next.SetActive(true);
+        if (fader) yield return fader.FadeIn();
     }
 }
