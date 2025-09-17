@@ -20,7 +20,7 @@ public class QuizManager : MonoBehaviour
     private float timeRemaining = 30f;
     private int score = 0;
 
-    private void Start()
+    private void OnEnable()
     {
         timeRemaining = initTime;
         items = QuizLoader.LoadFromResources("quiz");

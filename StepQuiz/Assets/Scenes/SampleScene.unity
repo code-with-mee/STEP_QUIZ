@@ -1090,6 +1090,7 @@ GameObject:
   - component: {fileID: 345377647}
   - component: {fileID: 345377646}
   - component: {fileID: 345377648}
+  - component: {fileID: 345377649}
   m_Layer: 5
   m_Name: ScreenSetting
   m_TagString: Untagged
@@ -1111,6 +1112,7 @@ RectTransform:
   m_Children:
   - {fileID: 1461515243}
   - {fileID: 1271389483}
+  - {fileID: 371519755}
   m_Father: {fileID: 1012419091}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1168,6 +1170,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fda7afcb98ff44cb8b095b3a36d215f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomPanelColor
+--- !u!114 &345377649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345377644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30463fec7f9f64201af166bdbb8d9d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGradient
+  mode: 0
+  invert: 0
+  topColor: {r: 1, g: 1, b: 1, a: 1}
+  bottomColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &349269105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,13 +1198,14 @@ GameObject:
   - component: {fileID: 349269108}
   - component: {fileID: 349269107}
   - component: {fileID: 349269109}
+  - component: {fileID: 349269110}
   m_Layer: 5
   m_Name: ScreenLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &349269106
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1261,6 +1280,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fda7afcb98ff44cb8b095b3a36d215f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomPanelColor
+--- !u!114 &349269110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349269105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30463fec7f9f64201af166bdbb8d9d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGradient
+  mode: 0
+  invert: 0
+  topColor: {r: 1, g: 1, b: 1, a: 1}
+  bottomColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &365773179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,12 +1404,12 @@ RectTransform:
   m_Children:
   - {fileID: 701452371}
   - {fileID: 1694548285}
-  m_Father: {fileID: 1271389483}
+  m_Father: {fileID: 345377645}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 133.86426, y: 408.0027}
-  m_SizeDelta: {x: 317.7506, y: 143.169}
+  m_AnchoredPosition: {x: 263, y: -117}
+  m_SizeDelta: {x: 527.1386, y: 145.58069}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371519756
 MonoBehaviour:
@@ -1439,7 +1474,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371519754}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1504,8 +1539,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -65, y: 0}
-  m_SizeDelta: {x: 130, y: 100}
+  m_AnchoredPosition: {x: -132.60056, y: 0}
+  m_SizeDelta: {x: 106.7989, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &431861874
 MonoBehaviour:
@@ -1906,6 +1941,7 @@ GameObject:
   - component: {fileID: 598527359}
   - component: {fileID: 598527358}
   - component: {fileID: 598527360}
+  - component: {fileID: 598527361}
   m_Layer: 5
   m_Name: ScreenTitle
   m_TagString: Untagged
@@ -1987,6 +2023,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fda7afcb98ff44cb8b095b3a36d215f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomPanelColor
+--- !u!114 &598527361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598527356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30463fec7f9f64201af166bdbb8d9d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGradient
+  mode: 0
+  invert: 0
+  topColor: {r: 1, g: 1, b: 1, a: 1}
+  bottomColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &602976485
 GameObject:
   m_ObjectHideFlags: 0
@@ -2517,7 +2569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2526,18 +2578,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 53
-    m_FontStyle: 1
+    m_FontSize: 91
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 61
-    m_Alignment: 5
+    m_MaxSize: 91
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BACK
+  m_Text: '       BACK'
 --- !u!222 &701452373
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2559,13 +2611,14 @@ GameObject:
   - component: {fileID: 770867830}
   - component: {fileID: 770867832}
   - component: {fileID: 770867833}
+  - component: {fileID: 770867834}
   m_Layer: 5
   m_Name: ScreenGamePlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &770867829
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2662,6 +2715,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fda7afcb98ff44cb8b095b3a36d215f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomPanelColor
+--- !u!114 &770867834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770867828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30463fec7f9f64201af166bdbb8d9d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGradient
+  mode: 0
+  invert: 0
+  topColor: {r: 1, g: 1, b: 1, a: 1}
+  bottomColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &850386422
 GameObject:
   m_ObjectHideFlags: 0
@@ -3093,7 +3162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3102,18 +3171,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 53
-    m_FontStyle: 1
+    m_FontSize: 91
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 61
-    m_Alignment: 5
+    m_MaxSize: 91
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BACK
+  m_Text: '       BACK'
 --- !u!222 &1001044551
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3686,7 +3755,6 @@ RectTransform:
   - {fileID: 1016884840}
   - {fileID: 1569966943}
   - {fileID: 1728304244}
-  - {fileID: 371519755}
   m_Father: {fileID: 345377645}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4582,6 +4650,7 @@ GameObject:
   - component: {fileID: 1496217535}
   - component: {fileID: 1496217537}
   - component: {fileID: 1496217536}
+  - component: {fileID: 1496217538}
   m_Layer: 5
   m_Name: ScreenPause
   m_TagString: Untagged
@@ -4650,6 +4719,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496217534}
   m_CullTransparentMesh: 1
+--- !u!114 &1496217538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496217534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30463fec7f9f64201af166bdbb8d9d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGradient
+  mode: 0
+  invert: 0
+  topColor: {r: 1, g: 1, b: 1, a: 1}
+  bottomColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1521696243
 GameObject:
   m_ObjectHideFlags: 0
@@ -5522,8 +5607,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -65, y: 0}
-  m_SizeDelta: {x: 130, y: 100}
+  m_AnchoredPosition: {x: -132.60056, y: 0}
+  m_SizeDelta: {x: 106.7989, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1694548286
 MonoBehaviour:
@@ -5992,6 +6077,7 @@ GameObject:
   - component: {fileID: 1756029741}
   - component: {fileID: 1756029740}
   - component: {fileID: 1756029743}
+  - component: {fileID: 1756029744}
   m_Layer: 5
   m_Name: ScreenCredit
   m_TagString: Untagged
@@ -6070,6 +6156,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fda7afcb98ff44cb8b095b3a36d215f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomPanelColor
+--- !u!114 &1756029744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756029739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30463fec7f9f64201af166bdbb8d9d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGradient
+  mode: 0
+  invert: 0
+  topColor: {r: 1, g: 1, b: 1, a: 1}
+  bottomColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1783423181
 GameObject:
   m_ObjectHideFlags: 0
@@ -6471,7 +6573,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1929959147}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1012419092}
+        m_TargetAssemblyTypeName: ScreenManager, Assembly-CSharp
+        m_MethodName: ShowScreen
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 349269105}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1929959147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6536,7 +6650,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932055553}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6547,8 +6661,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 186.12555, y: -110.30737}
-  m_SizeDelta: {x: 317.7506, y: 143.169}
+  m_AnchoredPosition: {x: 263, y: -117}
+  m_SizeDelta: {x: 527.1386, y: 145.58069}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1932055555
 MonoBehaviour:
@@ -6613,7 +6727,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932055553}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

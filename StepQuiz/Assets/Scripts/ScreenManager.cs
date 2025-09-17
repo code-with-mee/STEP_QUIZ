@@ -24,6 +24,7 @@ public class ScreenManager : MonoBehaviour
         if (screenGamePlay) screenGamePlay.SetActive(false);
         if (screenSetting) screenSetting.SetActive(false);
         if (screenCredit) screenCredit.SetActive(false);
+        if (screenPause) screenPause.SetActive(false);
     }
 
     public void ShowPause(bool show)
