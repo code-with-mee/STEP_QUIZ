@@ -10,8 +10,13 @@ public class QuizManager : MonoBehaviour
     public Text timerText;
     public Text scoreText;
     public Button[] answerButtons;
-    private System.Random rng = new System.Random();
+    public GameObject gameOverPanel;
+    public Text gameOverText;
+    public Button retryButton;
+    public Button levelButton;
+    public ScreenManager screenManager;
 
+    private System.Random rng = new System.Random();
     private List<QuizItem> items;
     private int currentIndex = -1;
     private QuizItem current;
@@ -19,23 +24,30 @@ public class QuizManager : MonoBehaviour
     public float initTime = 30f;
     private float timeRemaining = 30f;
     private int score = 0;
+    private int maxQuestions = 20;
+    private int answered = 0;
 
     private void OnEnable()
     {
         timeRemaining = initTime;
-        items = QuizLoader.LoadFromResources("quiz");
-        items = items.OrderBy(x => UnityEngine.Random.value).ToList();
+        items = QuizLoader.LoadFromResources("quiz").OrderBy(x => UnityEngine.Random.value).Take(maxQuestions).ToList();
         score = 0;
-        scoreText.text = $"Score: {score}";
+        answered = 0;
+        scoreText.text = $"{score}/{maxQuestions}";
+        gameOverPanel.SetActive(false);
         NextQuestion();
+        retryButton.onClick.RemoveAllListeners();
+        retryButton.onClick.AddListener(RestartGame);
+        levelButton.onClick.RemoveAllListeners();
     }
 
     public void NextQuestion()
     {
         if (items == null || items.Count == 0) return;
-        currentIndex = (currentIndex + 1) % items.Count;
-        current = items[currentIndex];
+        if (answered >= maxQuestions) { FinishRun(); return; }
 
+        currentIndex = answered % items.Count;
+        current = items[currentIndex];
         questionText.text = current.question;
 
         var answers = new List<int>(current.answers);
@@ -51,6 +63,8 @@ public class QuizManager : MonoBehaviour
             int index = i;
             int value = answers[i];
             answerButtons[i].GetComponentInChildren<Text>().text = $"{letters[i]}. {value}";
+            answerButtons[i].interactable = true;
+            answerButtons[i].GetComponent<Image>().color = Color.white;
             answerButtons[i].onClick.RemoveAllListeners();
             answerButtons[i].onClick.AddListener(() => OnAnswer(index, value));
         }
@@ -74,31 +88,80 @@ public class QuizManager : MonoBehaviour
             timeRemaining -= 1f;
         }
         timerText.text = "Time: 0s";
-        NextQuestion();
+        Lose("Time up!");
     }
 
     private void OnAnswer(int buttonIndex, int chosenValue)
     {
         bool correct = chosenValue == current.correct;
-        if (correct)
-        {
-            score++;
-            scoreText.text = $"Score: {score}";
-        }
-
         foreach (var btn in answerButtons) btn.interactable = false;
         answerButtons[buttonIndex].GetComponent<Image>().color = correct ? Color.green : Color.red;
-        StartCoroutine(ResetAndNext());
+
+        if (!correct)
+        {
+            StopTimer();
+            StartCoroutine(ShowLoseThenPanel("Wrong answer!"));
+            return;
+        }
+
+        score++;
+        answered++;
+        scoreText.text = $"{score}/{maxQuestions}";
+        StopTimer();
+        StartCoroutine(NextAfterDelay());
     }
 
-    private IEnumerator ResetAndNext()
+    private IEnumerator NextAfterDelay()
     {
         yield return new WaitForSeconds(1f);
+        NextQuestion();
+    }
+
+    private void StopTimer()
+    {
+        if (timerRoutine != null)
+        {
+            StopCoroutine(timerRoutine);
+            timerRoutine = null;
+        }
+    }
+
+    private void Lose(string reason)
+    {
+        StopTimer();
         foreach (var btn in answerButtons)
         {
-            btn.interactable = true;
-            btn.GetComponent<Image>().color = Color.white;
+            btn.interactable = false;
         }
+        StartCoroutine(ShowLoseThenPanel(reason));
+    }
+
+    private IEnumerator ShowLoseThenPanel(string reason)
+    {
+        yield return new WaitForSeconds(0.6f);
+        gameOverText.text = $"{reason}\nScore: {score}/{maxQuestions}";
+        gameOverPanel.SetActive(true);
+    }
+
+    private void FinishRun()
+    {
+        StopTimer();
+        foreach (var btn in answerButtons)
+        {
+            btn.interactable = false;
+        }
+        gameOverText.text = $"Finished!\nScore: {score}/{maxQuestions}";
+        gameOverPanel.SetActive(true);
+    }
+
+    private void RestartGame()
+    {
+        gameOverPanel.SetActive(false);
+        timeRemaining = initTime;
+        items = QuizLoader.LoadFromResources("quiz").OrderBy(x => UnityEngine.Random.value).Take(maxQuestions).ToList();
+        score = 0;
+        answered = 0;
+        scoreText.text = $"{score}/{maxQuestions}";
         NextQuestion();
     }
 }

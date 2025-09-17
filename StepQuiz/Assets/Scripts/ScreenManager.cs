@@ -10,6 +10,7 @@ public class ScreenManager : MonoBehaviour
     [SerializeField] private GameObject screenSetting = null;
     [SerializeField] private GameObject screenCredit = null;
     [SerializeField] private GameObject screenPause = null;
+        [SerializeField] private GameObject screenWinLose = null;
     [SerializeField] private ScreenFader fader = null;
 
     void Start()
@@ -25,6 +26,7 @@ public class ScreenManager : MonoBehaviour
         if (screenSetting) screenSetting.SetActive(false);
         if (screenCredit) screenCredit.SetActive(false);
         if (screenPause) screenPause.SetActive(false);
+        if (screenWinLose) screenWinLose.SetActive(false);
     }
 
     public void ShowPause(bool show)
